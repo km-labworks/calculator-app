@@ -1,0 +1,94 @@
+/* 画面全体 */
+body {
+    background-color: rgb(228, 227, 227);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial,sans-serif;
+}
+
+/* 電卓の全体のレイアウト */
+.calculatorBody {
+    background: #fdfcfc;
+    padding: 20px;
+    border-radius: 10px;
+    width: 233px;
+}
+
+/* 表示エリア */
+.displayArea {
+    background-color: #000;
+    color: rgb(248, 249, 248);
+    font-size: 38px;
+    text-align: right;
+    padding: 10px;
+    padding-right: 10%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 50px;
+    overflow: hidden; 
+    /* overflow: hidden; はみ出した部分を見えなくする */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+/* ボタンの配置 */
+.buttonGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 54px);
+    gap: 5px;
+}
+
+/* 数字ボタンと演算ボタンだけ正方形にする */
+.calcButton:not(.equalButton):not(.zeroButton) {
+    aspect-ratio: 1 / 1;   /* 幅と高さを同じに */
+    font-size: 18px;
+}
+
+/* 共通のボタン */
+.calcButton {
+    font-size: 20px;
+    padding: 3px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #d5d4d4;
+    font-weight: 550;
+}
+
+/* 演算子の部分 */
+.operationButton {
+    background: #ff9800;
+    color: rgb(250, 248, 248);
+}
+
+/* イコールボタン */
+.equalButton {
+    background-color: rgb(96, 212, 96);
+    color: white;
+    grid-column: span 4;
+    height: 50px;
+}
+
+/* 履歴：左上 */
+#history {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+/* メイン表示（今まで通り） */
+#screen {
+    position: absolute;
+    display: block;
+    text-align: right; 
+    font-size: 38px;
+    width: 100%;
+}

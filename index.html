@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image" href="images/calculator.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css">
+    <title>電卓アプリ</title>
+  </head>
+  <body>
+    <div class="calculatorBody">
+
+      <div class="displayArea">
+        <div id="history"></div>
+        <div id="screen">0</div>
+      </div>
+
+        <div class="buttonGrid">
+
+          <button class="calcButton" type="button" data-key="digit:7">7</button>
+          <button class="calcButton" type="button" data-key="digit:8">8</button>
+          <button class="calcButton" type="button" data-key="digit:9">9</button>
+
+          <button class="calcButton operationButton" type="button" data-key="op:div">÷</button>
+
+          <button class="calcButton" type="button" data-key="digit:4">4</button>
+          <button class="calcButton" type="button" data-key="digit:5">5</button>
+          <button class="calcButton" type="button" data-key="digit:6">6</button>
+
+          <button class="calcButton operationButton" type="button" data-key="op:mul">×</button>
+
+          <button class="calcButton" type="button" data-key="digit:1">1</button>
+          <button class="calcButton" type="button" data-key="digit:2">2</button>
+          <button class="calcButton" type="button" data-key="digit:3">3</button>
+
+          <button class="calcButton operationButton" type="button" data-key="op:sub">-</button>
+
+          <button class="calcButton zeroButton" type="button" data-key="digit:0">0</button>
+          <button class="calcButton decimalButton" type="button" data-key="decimal">.</button>
+          <button class="calcButton clearButton" type="button" data-key="clear">C</button>
+          <button class="calcButton operationButton" type="button" data-key="op:add">+</button>
+
+          <button class="calcButton equalButton" type="button" data-key="equal">=</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts" defer></script>
+
+  </body>
+</html>
