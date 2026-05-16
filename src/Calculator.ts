@@ -69,8 +69,11 @@ export class Calculator {
                 this.clearAll();
                 return;
             }
-            if (token.kind === "digit") {
-                this.clearAll(); // 新規開始
+            if (
+                token.kind === "digit" ||
+                token.kind === "decimal"
+                ) {
+                this.clearAll();
             } else {
                 return; // 無視
             }
