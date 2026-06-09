@@ -81,34 +81,41 @@ export class Calculator {
 
         try {
         switch (token.kind) {
-            case "digit":
-            this.handleDigit(token.value);
+            case "digit"://数字
+            this.handleDigit(token.value);//this.handleDigit(7)など
             break;
-            case "decimal":
+            case "decimal"://小数点
             this.buffer.pushDecimal();
             this.state = this.operator === null
             ? CalcState.InputtingFirst : CalcState.InputtingSecond;
             break;
-            case "op":
+            case "op"://演算子
             this.handleOperator(token.value);
             break;
-            case "equal":
+            case "equal"://イコール
             this.handleEqual();
             break;
-            case "clear":
+            case "clear"://クリア
             this.clearAll();
             break;
         }
       // 状態に応じて画面更新
         this.updateDisplay();
     } catch (e) {
-      // 0除算などのエラー処理
         if (e instanceof DivisionByZeroError) {
-            this.display.renderError(Config.ERROR_MESSAGE);
-            //this.state = CalcState.Error;
-            this.state = CalcState.Error;
-        }
+
+            this.left = null;
+            this.operator = null;
+            this.buffer.clear();
+
+        this.display.renderError(
+            Config.ERROR_MESSAGE
+        );
+
+        this.state = CalcState.Error;
     }
+}
+
 }
 
     /**
@@ -262,8 +269,21 @@ private handleOperator(op: Operation) {
      * ・結果表示中でない場合のみbufferを表示
      */
     private updateDisplay() {
-        if (this.state !== CalcState.ResultShown) {
-            this.display.render(this.buffer.toString() || "0");
-        }
+
+    if (
+        this.state === CalcState.OperatorEntered &&
+        this.left !== null
+    ) {
+        this.display.render(
+            this.formatter.formatForDisplay(this.left)
+        );
+        return;
+    }
+
+    if (this.state !== CalcState.ResultShown) {
+        this.display.render(
+            this.buffer.toString() || "0"
+        );
+    }
     }
 }

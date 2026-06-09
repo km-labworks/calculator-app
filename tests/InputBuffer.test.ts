@@ -16,7 +16,6 @@ import { InputBuffer } from "../src/InputBuffer";
 describe("InputBuffer", () => {
 
   /**
-   * TC-001
    * 正常系
    * 数字を連続入力できること
    */
@@ -35,7 +34,6 @@ describe("InputBuffer", () => {
   });
 
   /**
-   * TC-002
    * 境界値テスト
    * 最大桁数を超えた入力が無視されること
    */
@@ -56,7 +54,6 @@ describe("InputBuffer", () => {
   });
 
   /**
-   * TC-003
    * 異常系
    * 小数点を2回入力できないこと
    */
@@ -73,7 +70,6 @@ describe("InputBuffer", () => {
   });
 
   /**
-   * TC-004
    * 正常系
    * 負数を入力できること
    */
@@ -89,7 +85,6 @@ describe("InputBuffer", () => {
   });
 
   /**
-   * TC-005
    * 正常系
    * clearで入力をリセットできること
    */
@@ -106,7 +101,6 @@ describe("InputBuffer", () => {
   });
 
   /**
-   * TC-006
    * 正常系
    * 空状態で isEmpty が true を返すこと
    */

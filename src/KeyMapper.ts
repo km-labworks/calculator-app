@@ -25,10 +25,7 @@ export class KeyMapper {
             // digit:7 の形式を分解
         switch (type) {
             case "digit":
-                return {
-                    kind: "digit",
-                    value: Number(value)
-                };
+                return { kind: "digit", value: Number(value) };
             case "decimal":
                 return { kind: "decimal" };
             case "equal":
@@ -37,17 +34,17 @@ export class KeyMapper {
                 return { kind: "clear" };
             case "op":
         
-        switch (value) {
-            case "add":
-                return { kind: "op", value: Operation.Add };
-            case "sub":
-                return { kind: "op", value: Operation.Subtract };
-            case "mul":
-                return { kind: "op", value: Operation.Multiply };
-            case "div":
-                return { kind: "op", value: Operation.Divide };
+            switch (value) {
+                case "add":
+                    return { kind: "op", value: Operation.Add };
+                case "sub":
+                    return { kind: "op", value: Operation.Subtract };
+                case "mul":
+                    return { kind: "op", value: Operation.Multiply };
+                case "div":
+                    return { kind: "op", value: Operation.Divide };
+            }
         }
-    }
-    return null;
+        return null;
     }
 }
